@@ -18,7 +18,9 @@ app.get('/get',(req,res)=>{
 
 app.post('/submit',urlencodedParser,(req,res)=>{
     console.log(req.body)
-    var pathname=__dirname+'/experiments/'+req.body.direc+"/"+req.body.fname+'.txt'
+    var extension='.txt';
+    if(req.body.direc=="MP") extension='.asm' 
+    var pathname=__dirname+'/experiments/'+req.body.direc+"/"+req.body.fname+extension
 
     const lineByLine = require('n-readlines');
 const liner = new lineByLine(pathname);
