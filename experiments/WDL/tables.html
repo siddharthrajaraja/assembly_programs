@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tables</title>
+</head>
+
+<style>
+    table{
+        border: 0.075px solid black;
+    }
+</style>
+
+<script type="text/javascript">
+   var number = parseInt( window.prompt("ENTER VALUE :"));
+   document.write("TABLE  DISPLAYED of : ",number)
+    document.write('<table>')
+   for(var i=1;i<=10;i++){
+       document.write('<tr>')
+                    document.write('<td>'+String(number)+'</td>'+'<td>x<td>'+'<td>'+String(i)+'</td>'+'<td>=<td>'+'<td>'+String(i*number))
+
+        document.write('</tr>')
+   }
+   document.write('</table>')
+</script>
+
+<body>
+       
+        
+</body>
+</html>

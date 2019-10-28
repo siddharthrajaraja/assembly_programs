@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Click RB</title>
+</head>
+<body bgcolor="white" id="body">
+    <input type="radio" name="color" onclick="setcolor('red')" id="red" value="RED"> RED <br>
+    <input type="radio" name="color" onclick="setcolor('blue')" id="blue" value="BLUE"> BLUE <br>
+    <input type="radio" name="color" onclick="setcolor('green')" id="green" value="GREEN"> GREEN <br>
+    <script>
+        function setcolor(value){
+            document.getElementById('body').setAttribute('bgcolor',value);
+        }
+         
+    </script>
+</body>
+</html>
