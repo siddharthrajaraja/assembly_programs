@@ -1,4 +1,4 @@
-; This program is of Factorial =====>
+; This program is of Factorial ================================>
 
 
 .model small
