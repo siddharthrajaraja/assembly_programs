@@ -1,0 +1,158 @@
+Functions:
+
+create table customers(
+id int ,
+name varchar(10),
+age int,
+salary int);
+
+insert into customers values(1,'saurabh',20,2000);
+insert into customers values(2,'saurab',20,1500);
+insert into customers values(3,'saura',20,1000);
+insert into customers values(4,'saur',20,3000);
+
+
+ID	NAME	AGE	SALARY
+1	saurabh	20	2000
+4	saur	20	3000
+3	saura	20	1000
+2	saurab	20	1500
+
+/*Create function:*/
+CREATE OR REPLACE FUNCTION totalCustomers 
+RETURN number IS 
+   total number(2) := 0; 
+BEGIN 
+   SELECT count(*) into total 
+   FROM customers; 
+    
+   RETURN total; 
+END;
+ 
+/*Function Call:*/
+DECLARE 
+   c number(2); 
+BEGIN 
+   c := totalCustomers(); 
+   dbms_output.put_line('Total no. of Customers: ' || c); 
+END;
+
+
+
+
+
+
+
+
+
+Triggers:
+
+For the same table above
+
+Create Trigger:
+CREATE OR REPLACE TRIGGER display_salary_changes 
+BEFORE DELETE OR INSERT OR UPDATE ON customers 
+FOR EACH ROW 
+WHEN (NEW.ID > 0) 
+DECLARE 
+   sal_diff number; 
+BEGIN 
+   sal_diff := :NEW.salary  - :OLD.salary; 
+   dbms_output.put_line('Old salary: ' || :OLD.salary); 
+   dbms_output.put_line('New salary: ' || :NEW.salary); 
+   dbms_output.put_line('Salary difference: ' || sal_diff); 
+END; 
+
+
+Triggering  the trigger:
+
+INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) 
+VALUES (7, 'Kriti', 22, 'HP', 7500.00 ); 
+
+1 row(s) inserted.
+Old salary: 
+New salary: 7500
+Salary difference:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Procedure:
+
+/*Procedure create:*/
+INSERT INTO CUSTOMERS VALUES (7, 'Kriti', 22, 7500 ); 
+
+CREATE OR REPLACE PROCEDURE greetings 
+AS 
+BEGIN 
+   dbms_output.put_line('Hello World!'); 
+END; 
+
+
+/*Call Procedure:*/
+EXECUTE greetings;
+
+
+/*Call Procedure:(Second way)*/
+
+BEGIN 
+   greetings; 
+END;
+
+
+Statement processed.
+Hello World!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
