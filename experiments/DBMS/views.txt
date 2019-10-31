@@ -1,0 +1,39 @@
+CREATE TABLE Persons (
+    PID int,
+    FirstName varchar(50),
+    LastName varchar(50),
+    phone_no int,
+    City varchar(50)
+);
+
+
+INSERT INTO Persons VALUES (101, 'SIDDHI', 'JAGTAP', 9004521642, 'NERUL');
+INSERT INTO Persons VALUES (102, 'RASIKA', 'DESHMUKH' , 9892689278, 'NERUL');
+INSERT INTO Persons VALUES (103, 'SAURABH', 'VARADE' , 9619793255, 'KALWA');
+INSERT INTO Persons VALUES (104, 'AMAN', 'SHRIVASTAVA' , 9004657845, 'AIROLI');
+INSERT INTO Persons VALUES (105, 'VAIBHAVI', 'NAGTODE',8850895556,'AIROLI');
+
+SELECT * FROM Persons;
+ 
+
+CREATE VIEW vw_person1 AS
+SELECT PID, FirstName, LastName, City
+FROM Persons
+WHERE City='AIROLI';
+
+SELECT * FROM vw_person1;
+ 
+CREATE VIEW vw_person2 AS
+SELECT PID, City
+FROM Persons
+WHERE PID>101;
+
+SELECT * FROM vw_person2;
+ 
+CREATE OR REPLACE VIEW vw_person2 AS
+SELECT PID, FirstName, City
+FROM Persons
+WHERE PID<105;
+
+SELECT * FROM vw_person2;
+ 

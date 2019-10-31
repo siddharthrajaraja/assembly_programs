@@ -1,0 +1,35 @@
+CREATE TABLE EMP(e_no int PRIMARY KEY,e_name varchar(10),salary int);
+INSERT INTO EMP(e_no,e_name,salary)
+VALUES(1,'riya',50000);
+INSERT INTO EMP(e_no,e_name,salary)
+VALUES(2,'priya',60000);
+INSERT INTO EMP(e_no,e_name,salary)
+VALUES(3,'siya',70000);
+SELECT * from EMP;	
+
+FUNCTION:
+CREATE  FUNCTION getsalary (no IN number) return number
+is 
+ sal number(5);
+begin
+ select salary into sal from emp where e_no=no;
+ return sal;
+end;
+
+
+select getsalary(2) FROM dual;
+
+
+select getsalary(1) FROM dual;
+
+
+PROCEDURE:
+CREATE  PROCEDURE p4(id IN NUMBER, sal IN NUMBER) 
+AS	
+BEGIN   
+  INSERT INTO emp VALUES(id, 'name',sal); 
+  DBMS_OUTPUT.PUT_LINE('VALUE INSERTED.');
+END;
+BEGIN 
+p4(5,21444);
+end
