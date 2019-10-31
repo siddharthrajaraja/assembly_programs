@@ -1,0 +1,53 @@
+CREATE TABLE faculty(sdrn NUMBER(3) PRIMARY KEY,name varchar(200) NOT NULL, salary number(2) DEFAULT 40);
+CREATE TABLE student(rollno NUMBER(3) PRIMARY KEY,name VARCHAR(200) NOT NULL,department VARCHAR(5) DEFAULT 'FE');
+CREATE TABLE teaches(rollno NUMBER(3),faculty NUMBER(3),subject VARCHAR(200),  FOREIGN KEY (faculty) REFERENCES faculty(sdrn));
+CREATE TABLE marks(rollno number(3),marks1 number(2) ,marks2 number(2),marks_total number(2), FOREIGN KEY (rollno) REFERENCES student(rollno));
+
+drop table student
+drop table faculty
+drop table marks
+drop table teaches
+drop function getsalary
+
+insert into faculty values(111,'rupak dey',11);
+insert into faculty values(222,'sriujan dey',22);
+insert into faculty values(121,'mhatre dey',33);
+
+insert into student values(000,'somesh koli','COMP');
+insert into student values(999,'x koli','extc');
+insert into student values(988,'f koli','COMP');
+
+insert into teaches values(000,121,'dbms');
+insert into teaches values(000,121,'mp');
+
+insert into marks values(000,10,20,0);
+
+
+select * from faculty;
+select * from student;
+select * from teaches;
+select * from marks;
+
+select getsalary(111) FROM dual;
+
+
+trigger::::::::::
+create or replace trigger set_total
+before insert or update on marks
+for each row begin
+update marks set marks_total=marks.marks1+marks.marks2;
+end;
+
+functions::::::::::::
+create function getsalary(id number) 
+return number
+is
+sal number(3);
+begin
+ select salary into sal from faculty where sdrn=id;
+ return sal;
+end;
+
+views:::::
+create or replace view v as select * from faculty;
+select * from v;

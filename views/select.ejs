@@ -7,7 +7,7 @@
     <title></title>
 </head>
 <body>
-    
+<!--    
     <form action="/submit" method="POST">
         Lorem ipsum dolor sit amet consectetur
         <select name="direc" id="direc" style="border: none;" >
@@ -15,14 +15,61 @@
         <option value="WDL">WDL</option>
         <option value="DBMS">DBMS</option>
         <option value="MP">MP</option>
-        
+     
     </select>
     adipisicing elit. Sunt facilis esse, cumque a sed, quia ipsa <input type="text" name="fname" id="fname" placeholder="File" style="border: none;" size="3">asperiores recusandae rerum perferendis vel ipsam, veniam sint repellat doloribus 
     <button type="submit" style="border: none;background-color:white;cursor:pointer;"> SUBMIT </button>
     aut quidem itaque! Laudantium?
 
-</form>
+    <br>
+    heroku paar dala hai saab  link : <strong> <a href="https://exam-cheating.herokuapp.com/get"> click </a> </strong>
 
+</form>
+-->
+
+
+<select name="direc" id="direc" style="border: none;" onclick="check()" >
+  <!--  <option value="CN">CN</option> -->
+  <option value="none">--SELECT SUBJECT--</option>
+    <option value="WDL">WDL</option>
+    <option value="DBMS">DBMS</option>
+  <!--  <option value="MP">MP</option> -->
+ 
+</select>
+
+<script>
+    function check(){
+        var dbms=['abc.txt','constraints.txt','foreign key.txt','function.txt','functions.txt','join.txt','nested.txt','something.txt','string.txt','trigger.txt','view.txt','views.txt']
+        var wdl=['frames.html','alinks.html','date.html','demonstrate_tables.html','factorial.html','float_table.html',
+                'form_validate.html','image_text_align.html','image_table.html','jqueryhidenshow.html','myresume.html','radio.html',
+                'stylesheets.html','tables.html','type_of_link.html','xmlfile.xml','xslfile.xsl'
+                ]
+        
+        var options=document.getElementById('direc').value;
+        console.log(options)
+        if(options=="DBMS"){
+            for(var i=0;i<dbms.length;i++){
+                var location="/file/DBMS/"+dbms[i]
+                console.log(location)
+                document.write("<a href='/file/DBMS/"+dbms[i]+"'>"+dbms[i]+'</a>')
+                document.write('<br>')
+            }
+        }
+        else if(options=="WDL"){
+            for(var i=0;i<wdl.length;i++){
+
+                var location="/file/WDL/"+wdl[i]
+                console.log(location)
+                document.write("<a href='/file/WDL/"+wdl[i]+"'>"+wdl[i]+'</a>')
+                document.write('<br>')
+            
+                
+            }
+        }
+
+    }
+    
+</script>
     
 </body>
 </html>

@@ -1,0 +1,51 @@
+<?xml version = "1.0" encoding = "UTF-8" standalone = "yes"?>
+<?xml-stylesheet type="text/xsl" href="./xslfile.xsl"?>
+<!DOCTYPE railwayreservation  [
+<!ELEMENT railwayreservation (tickets)>
+<!ELEMENT tickets (ticket)>
+<!ELEMENT ticket (id,trainno,nameofperson,to,from,trainname)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT trainno (#PCDATA)>
+<!ELEMENT nameofperson (#PCDATA)>
+<!ELEMENT to (#PCDATA)>
+<!ELEMENT from (#PCDATA)>
+<!ELEMENT trainname (#PCDATA)>
+
+]>
+<railwayreservation>
+  <tickets>
+    <ticket>
+      <id>1</id>
+      <trainno>
+        122501
+      </trainno>
+      <nameofperson>xyz</nameofperson>
+      <amount>100</amount>
+      <to>Lucknow</to>
+      <from>Mumbai</from>
+      <trainname>Pushpak</trainname>
+    </ticket>
+    <ticket>
+      <id>2</id>
+      <trainno>
+        122533
+      </trainno>
+      <nameofperson>abc</nameofperson>
+      <amount>100</amount>
+      <to>Lucknow</to>
+      <from>Mumbai</from>
+      <trainname>Local </trainname>
+    </ticket>
+    <ticket>
+      <id>3</id>
+      <trainno>
+        122501
+      </trainno>
+      <nameofperson>asd</nameofperson>
+      <amount>100</amount>
+      <to>Lucknow</to>
+      <from>Mumbai</from>
+      <trainname>lucknow superfast</trainname>
+    </ticket>
+  </tickets>
+</railwayreservation>

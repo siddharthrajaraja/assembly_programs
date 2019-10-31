@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 
+
 const app=express()
 
 
@@ -43,6 +44,16 @@ console.log('end of line reached');
 
     })*/
 });
+//Specially for wdl
+app.get('/file/:folder/:fname',function(req,res){
+    var list=['a.html','b.html','c.html','frames.html','mobile.html','cars.html','watches.html']
+    if(list.indexOf(req.params.fname )!=-1 )
+    {
+        req.params.fname="frames/"+req.params.fname;
+    }
+        res.sendFile(path.join(__dirname,"/experiments/"+req.params.folder+"/"+req.params.fname));
+
+})
 
 
 app.listen( process.env.PORT || 1234)
