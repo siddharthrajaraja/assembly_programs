@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User registration form</title>
+</head>
+<body>
+    <center><div>
+        <form action = "registration.php" method='POST'>
+            <h1>Arithmetic Operation</h1>
+            Number One:<br/><input type="number" name="num1" required/><br/>
+            Operation:<br/><input type="text" name = "operator"/><br/>
+            Number Two:<br/><input type="number" name="num2" required"/><br/><div>
+    <?php
+        if(isset($_POST["submit"])){
+            $num1 = $_POST["num1"];
+            $num2 = $_POST["num2"];
+            $op = $_POST["operator"];
+	    if($op=='+'){
+		echo $num1+$num2;
+}
+	    if($op=='-'){echo $num1-$num2;}
+	    if($op=='*'){echo $num1*$num2;}
+	    if($op=='/'){echo $num1/$num2;}
+        }
+    ?>
+</div>
+            <input type="submit" name="submit" value="Submit"/><br/>
+        </form>
+    </div></center>
+</body>
+</html>
+
+
+<!-------------------------------------------------------------->
+
+<!--Steps to execute:
+1. First copy paste the folder of the file into htdocs of the xampp installation folder
+2. Start the control panel of xampp
+3. Start the "Apache" server and then browser
+4. In browser type:  "localhost/"foldername"/"filename.php"
+5. All set your php file must be running.-->
