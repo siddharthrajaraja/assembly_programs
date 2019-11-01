@@ -1,0 +1,33 @@
+; Assembly language program to convert BCD number to binary number
+
+.MODEL SMALL
+
+DATA SEGMENT
+BCD DB 72H
+BINARY DB ?
+ENDS
+
+CODE SEGMENT
+ASSUME CS:CODE, DS:DATA
+START:
+	MOV AX, DATA
+	MOV DS, AX
+
+	MOV AH, 0H
+	MOV AL, BCD
+	MOV BL, AL
+
+	AND AL, 0F0H
+	AND BL, 0FH
+	MOV CL, 04H
+	ROL AL, CL
+
+	MOV CL, 10
+	MUL CL
+	ADD AL, BL
+	MOV BINARY, AL
+
+	MOV AH, 4CH
+	INT 21H    
+ENDS
+END START

@@ -1,0 +1,30 @@
+; Assembly language program to interchange two blocks of data
+
+.MODEL SMALL
+
+DATA SEGMENT
+X DB 10H, 20H, 30H, 40H, 50H
+Y DB 60H, 70H, 80H, 90H, 00H
+DATA ENDS
+
+CODE SEGMENT
+ASSUME CS:CODE, DS:DATA
+START:
+	MOV AX, DATA
+	MOV DS, AX
+
+	LEA SI, X
+	LEA DI, Y
+	MOV CX, 05H
+BACK:
+	MOV AL, [SI]
+	XCHG AL, [DI]
+	MOV [SI], AL
+	INC SI
+	INC DI
+	LOOP BACK
+
+	MOV AH, 4CH
+	INT 21H
+CODE ENDS
+END START
