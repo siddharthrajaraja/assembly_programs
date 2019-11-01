@@ -18,25 +18,34 @@ app.get('/get',(req,res)=>{
 })
 
 app.post('/submit',urlencodedParser,(req,res)=>{
+  try{  
     console.log(req.body)
     var extension='.txt';
-    if(req.body.direc=="MP") extension='.asm' 
+    if(req.body.direc=="MP") {
+        if(req.body.fname=='mixed_even_odd') extension='.cpp'
+        else 
+        extension='.asm'
+    } 
     var pathname=__dirname+'/experiments/'+req.body.direc+"/"+req.body.fname+extension
 
     const lineByLine = require('n-readlines');
 const liner = new lineByLine(pathname);
- 
-let line;
-let lineNumber = 0;
+        
+        let line;
+        let lineNumber = 0;
 
-var output=[]
- 
-while (line = liner.next()) {
-            output.push(line.toString('ascii'))
-}
- 
+        var output=[]
+        
+        while (line = liner.next()) {
+                    output.push(line.toString('ascii'))
+        }
+        
     res.render('output',{data:output})
 console.log('end of line reached');
+}
+catch(err){
+    res.send('CHUTIYE KUCH SELECT NAI KIA , BHADWE CHECK KAR!!')
+}
 
     /*fs.readFile(__dirname+'/experiments/'+req.body.direc+"/"+req.body.fname+'.txt','utf8',(err,data)=>{
         if(err) throw err;
