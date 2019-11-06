@@ -1,0 +1,15 @@
+Go to Run
+appwiz.cpl
+Turn on off
+select ftp from IIS
+Goto IIS MANAGER
+ADD FTP SITE
+SITE NAME,PATH -->NEXT
+ASSIGN IP ADD n port 21
+Start Ftp auto
+No SSL  --- >Next
+Anonymous auth
+All users 
+Read n write
+Finish
+open browser --> ftp://127.0.0.1/

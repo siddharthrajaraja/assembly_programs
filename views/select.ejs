@@ -7,12 +7,37 @@
     <title></title>
 </head>
 <body>
+
+        <select name="direc" id="direc" style="border: none;" onclick="check()" >
+                <option value="none">--SELECT SUBJECT--</option>
+                  <option value="CN">CN</option>
+                  
+              </select>
+              
+        <script>
+                 function check(){   
+                    var CN =['ftp_steps.txt','hack-wifi-password.txt','hamerror.py','hamming.cpp','hammingcode.py','leaky_bucket.py','telnet_Steps.txt']
+                    var options=document.getElementById('direc').value;
+                    console.log(options)
+                   
+                    for(var i=0;i<CN.length;i++){
+                        var location="/file/CN/"+CN[i]
+                        console.log(location)
+                        document.write("<a href='/file/CN/"+CN[i]+"'>"+CN[i]+'</a>')
+                        document.write('<br>')
+                    }
+                
+                }
+            </script>  
+
   <%  fnames=['add8','add16','bcdtobin','bintobcd','block_transfer',
             'div16','evenodd','fact','gcd','hello','highest','lcm','mixed_even_odd',
             'mul16','ncr','packbcd','palindrome','sort',
             'sub8','two_block_transfer','uinput_palindrome','unpackbcd'] %>
 
-    <form action="/submit" method="POST">
+
+
+<!--   <form action="/submit" method="POST">
         <select name="direc" id="direc" style="border: none;" >
         <option value="MP">MP</option>
      
@@ -24,7 +49,7 @@
            
            <%};%>
    </select>
- <!--  <input type="text" name="fname" id="fname" placeholder="File" style="border: none;" size="3"> -->
+ <input type="text" name="fname" id="fname" placeholder="File" style="border: none;" size="3"> 
     <button type="submit" style="border: none;background-color:white;cursor:pointer;"> SUBMIT </button>
     
 
@@ -37,7 +62,7 @@
     var pass=window.prompt("chutiye password enter kar!!");
     if(pass!="chutiye")document.location.reload()
 
-</script>
+</script>-->
 
 <!--
 

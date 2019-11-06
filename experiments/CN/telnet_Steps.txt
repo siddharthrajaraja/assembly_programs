@@ -1,0 +1,10 @@
+appwiz.cpl
+tick Telnet Server Client
+Control Panel >> System >> Remote Settings
+Remote
+tick choose 2 Remote
+>>Services.msc >> >> Right Click Telnet >> Telnet Properties
+ Startup type : Auto >> Apply>> Start >> OK
+cmd in Admin -- > telnet ip
+Goto c:/
+type file name
